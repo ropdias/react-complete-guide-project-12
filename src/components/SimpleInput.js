@@ -1,8 +1,17 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SimpleInput = (props) => {
   const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState("");
+  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+
+  // We can have a problem in a useEffect() hook if we start the validation with "true"
+  useEffect(() => {
+    if (enteredNameIsValid) {
+      console.log("Name Input is valid!");
+    }
+  }, [enteredNameIsValid]);
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -11,17 +20,32 @@ const SimpleInput = (props) => {
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
+    // If the form is submited all the inputs are treated as touched
+    setEnteredNameTouched(true);
+
+    if (enteredName.trim() === "") {
+      setEnteredNameIsValid(false);
+      return;
+    }
+    setEnteredNameIsValid(true);
+
     console.log(enteredName);
     const enteredValue = nameInputRef.current.value;
     console.log(enteredValue);
 
     // nameInputRef.current.value = ""; // It's not good to manipulate the DOM directly with vanilla JS code
-    setEnteredName('');
+    setEnteredName("");
   };
+
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
+  const nameInputClasses = nameInputIsInvalid
+    ? "form-control invalid"
+    : "form-control";
 
   return (
     <form onSubmit={formSubmissionHandler}>
-      <div className="form-control">
+      <div className={nameInputClasses}>
         <label htmlFor="name">Your Name</label>
         <input
           ref={nameInputRef}
@@ -30,6 +54,9 @@ const SimpleInput = (props) => {
           onChange={nameInputChangeHandler}
           value={enteredName}
         />
+        {nameInputIsInvalid && (
+          <p className="error-text">Name must not be empty.</p>
+        )}
       </div>
       <div className="form-actions">
         <button>Submit</button>
