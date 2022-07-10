@@ -11,8 +11,8 @@ Section 16 (Working with Forms & User Input) covered:
 - [x] React To Lost Focus
 - [x] Refactoring & Deriving States
 - [x] Managing The Overall Form Validity
-- [ ] Adding A Custom Input Hook
-- [ ] Re-Using The Custom Hook
+- [x] Adding A Custom Input Hook
+- [x] Re-Using The Custom Hook
 - [ ] Applying Our Hook & Knowledge To A New Form
 - [ ] Bonus: Using useReducer()
 
