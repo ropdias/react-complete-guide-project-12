@@ -14,7 +14,7 @@ Section 16 (Working with Forms & User Input) covered:
 - [x] Adding A Custom Input Hook
 - [x] Re-Using The Custom Hook
 - [x] Applying Our Hook & Knowledge To A New Form
-- [ ] Bonus: Using useReducer()
+- [x] Bonus: Using useReducer()
 
 
 More info:
