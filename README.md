@@ -13,7 +13,7 @@ Section 16 (Working with Forms & User Input) covered:
 - [x] Managing The Overall Form Validity
 - [x] Adding A Custom Input Hook
 - [x] Re-Using The Custom Hook
-- [ ] Applying Our Hook & Knowledge To A New Form
+- [x] Applying Our Hook & Knowledge To A New Form
 - [ ] Bonus: Using useReducer()
 
 

@@ -16,9 +16,9 @@ const useInput = (validateValue) => {
   };
 
   const reset = () => {
-    setEnteredValue('');  // this resets the input value
-    setIsTouched(false);  // this makes the input not show as invalid when the form is submited
-  }
+    setEnteredValue(""); // this resets the input value
+    setIsTouched(false); // this makes the input not show as invalid when the form is submited
+  };
 
   return {
     value: enteredValue,
@@ -26,7 +26,7 @@ const useInput = (validateValue) => {
     hasError,
     valueChangeHandler,
     inputBlurHandler,
-    reset
+    reset,
   };
 };
 

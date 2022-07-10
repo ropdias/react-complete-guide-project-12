@@ -7,8 +7,8 @@ const SimpleInput = (props) => {
     hasError: nameInputHasError,
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
-    reset: resetNameInput
-  } = useInput(value => value.trim() !== "");
+    reset: resetNameInput,
+  } = useInput((value) => value.trim() !== "");
 
   const {
     value: enteredEmail,
@@ -16,8 +16,8 @@ const SimpleInput = (props) => {
     hasError: emailInputHasError,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-    reset: resetEmailInput
-  } = useInput(value => value.includes("@"));
+    reset: resetEmailInput,
+  } = useInput((value) => value.includes("@"));
 
   // Notes:
   // We changed the valueIsValid state for a variable that is checked everytime the component is re-rendered
@@ -38,7 +38,7 @@ const SimpleInput = (props) => {
     // setEnteredNameTouched(true);
     // setEnteredEmailTouched(true);
 
-    if (!enteredNameIsValid || !enteredEmailIsValid) {
+    if (!formIsValid) {
       return;
     }
 
